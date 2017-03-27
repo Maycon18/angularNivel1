@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html ng-app="angularNivel1App">
+<head>
+<meta charset="utf-8">
+	<title>Malharia Malicheski</title>
+
+	<link rel="stylesheet" type="text/css" href="lib/bootstrap/css/bootstrap.min.css">
+	<script type="text/javascript" src="lib/angular.min.js"></script>
+
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<script type="text/javascript" src="js/app.js"></script>
+	<script type="text/javascript" src="js/controllers/app.controller.js"></script>
+</head>
+<body ng-controller="appCtrl">
+
+	<ul class="list-group">
+		<li ng-repeat="item in alunos" class="list-group-item"> 
+				{{item.nome}}
+		</li>
+	</ul>
+
+	<br>
+
+	<input ng-model="filtro" class="form-control" style="width: 50%" type="text">
+
+	<table  class="table table-striped progress-bar-danger table-bordered minhaTabela">
+		<thead>
+			<tr>
+				<th>Nome</th>
+				<th>Idade</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat="item in alunos | orderBy: 'nome' | filter: filtro">
+				<td>{{item.nome}}</td>
+				<td>{{item.idade}}</td>
+			</tr>
+		</tbody>
+
+	</table>
+
+</body>
+</html>
